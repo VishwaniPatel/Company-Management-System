@@ -8,15 +8,34 @@ children:[
   {
     path:'',
     pathMatch:'full',
-    redirectTo:'add'
+    redirectTo:'add',
+   
   },
   {
     path:'add',
-    component:CompanyFormComponent
+    component:CompanyFormComponent,
+    // data: {
+    //   title: 'company',
+    //   breadcrumb: [
+    //     {
+    //       label: 'company',
+    //       url: ''
+    //     }
+    //   ]
+    // }
   },
   {
     path:'edit/:company_id',
-    component:CompanyFormComponent
+    component:CompanyFormComponent,
+    data: {
+      title: 'company',
+      breadcrumb: [
+        {
+          label: 'Company-list',
+          url: ''
+        }
+      ]
+    }
   }
 ] }];
 
