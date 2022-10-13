@@ -1,0 +1,10 @@
+{
+    "companyList": [
+      {
+         "id": 1,
+         "name": "1Rivet",
+         "description": "This is IT company",
+         "tags": "FrontEnd"
+      }
+    ]
+  }

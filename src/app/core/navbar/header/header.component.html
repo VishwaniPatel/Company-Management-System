@@ -1,1 +1,14 @@
-<p>header works!</p>
+<nav class="navbar navbar-dark bg-primary">
+    <div>
+        <span class="bi bi-list text-white m-4"></span>
+        <span class="text-white">Company Management System</span>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mx-4">
+              <li class="breadcrumb-item text-white" aria-current="page" [routerLink] = '["company","add"]'>Company</li>
+              <li class="breadcrumb-item text-white"><app-ng-dynamic-breadcrumb [bgColor]="'none'"></app-ng-dynamic-breadcrumb></li>
+            </ol>
+          </nav>
+        
+    </div>
+</nav>
+<!-- [routerLink]='["company","edit",company_id]' -->
