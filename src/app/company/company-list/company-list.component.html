@@ -1,1 +1,29 @@
-<p>company-list works!</p>
+<!-- Sidebar starts hear -->
+<aside class="primary-aside d-flex flex-column p-2">
+    <!-- Company list title and add company data button -->
+<div  class="d-flex align-items-center justify-content-between mb-2">
+<h5>Company List</h5>
+          <span class="close bi bi-plus-circle text-primary me-2"></span>
+</div>
+<!-- Searchbar -->
+<div class="container-fluid border mb-3">
+    <form class="w-100 d-flex align-items-center" role="search">
+      <span class="bi bi-search me-3"></span>
+      <input
+        class="form-control"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+      />
+    </form>
+  </div>
+
+  <!-- Company list -->
+  <ol class="list-group">
+    <li class="d-flex justify-content-between p-2 list-group-item" *ngFor="let company of companyList">
+        <span>{{ company.name | nameLogo}}</span>
+        <span>{{ company.name  }}</span>
+        <span class="bi bi-x"></span>
+    </li>
+  </ol>
+</aside>
