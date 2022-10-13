@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { company } from '../company.model';
 
 @Component({
   selector: 'app-company-list',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./company-list.component.scss']
 })
 export class CompanyListComponent implements OnInit {
-
-  constructor() { }
+  @Input() public companyList:company[];
+  
+  constructor() { 
+    this.companyList = [];
+    
+    
+  }
 
   ngOnInit(): void {
+    
   }
 
 }
