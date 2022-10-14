@@ -14,15 +14,6 @@ children:[
   {
     path:'add',
     component:CompanyFormComponent,
-    // data: {
-    //   title: 'company',
-    //   breadcrumb: [
-    //     {
-    //       label: 'company',
-    //       url: ''
-    //     }
-    //   ]
-    // }
   },
   {
     path:'edit/:company_id',
