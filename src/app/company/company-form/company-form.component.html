@@ -29,8 +29,8 @@
         </div>
 
         <!-- Tag selection field-->
-        <ng-select class="form-control mb-3" [items]="categories" bindLabel="name" bindValue="id"
-            placeholder="Select Category" appendTo="body" [multiple]="true"></ng-select>
+        <ng-select class="form-control mb-3" [items]="categories" bindLabel="name"
+            placeholder="Select Category" appendTo="body" [multiple]="true" formControlName="companyTags"></ng-select>
 
         <!-- Validation for Company Tags -->
         <div
