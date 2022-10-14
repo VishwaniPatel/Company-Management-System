@@ -23,7 +23,7 @@
     <li class="d-flex justify-content-between p-2 list-group-item" *ngFor="let company of companyList">
         <span class="logo">{{ company.companyName | nameLogo}}</span>
         <span>{{ company.companyName}}</span>
-        <span class="bi bi-x"></span>
+        <span class="bi bi-x" (click)= "onDelete(company.id)"></span>
     </li>
   </ol>
 </aside>

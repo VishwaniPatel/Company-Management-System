@@ -24,4 +24,9 @@ export class CompanyComponent implements OnInit {
       this.dbcompanyList = company;
     })
   }
+  deleteCompanyDetails(id:number){
+    this.companyService.deleteCompany(id).subscribe((Response) => {
+      this.getAllCompany();
+    })
+  }
 }
