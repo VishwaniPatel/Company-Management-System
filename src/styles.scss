@@ -10,6 +10,9 @@
 //Add utilities index file
 @import "assets/scss/utilities/index";
 
+// Add ng-select theme
+@import "../node_modules/@ng-select/ng-select/themes/default.theme.css";
+
 /* Global */
 * {
     padding: 0px;
