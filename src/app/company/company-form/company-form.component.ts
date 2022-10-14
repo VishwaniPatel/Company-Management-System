@@ -42,7 +42,7 @@ export class CompanyFormComponent implements OnInit {
         id: [''],
         companyName: ['', Validators.required],
         companyDetails: ['', Validators.required],
-        companyTags: [''],
+        companyTags: ['', Validators.required],
         companyLogo: ['', Validators.required]
       }
     )
