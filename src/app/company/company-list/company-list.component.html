@@ -21,8 +21,8 @@
   <!-- Company list -->
   <ol class="list-group">
     <li class="d-flex justify-content-between p-2 list-group-item" *ngFor="let company of companyList">
-        <span class="logo">{{ company.name | nameLogo}}</span>
-        <span>{{ company.name  }}</span>
+        <span class="logo">{{ company.companyName | nameLogo}}</span>
+        <span>{{ company.companyName}}</span>
         <span class="bi bi-x"></span>
     </li>
   </ol>

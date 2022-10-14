@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { company } from '../company.model';
 
+
 @Injectable()
 export class CompanyService {
   private baseUrl: string;
@@ -14,5 +15,10 @@ export class CompanyService {
   getCompany(): Observable<company[]> {
     const url: string = this.baseUrl + 'companyList'
     return this.http.get<company[]>(url);
+  }
+
+  addCompany(company:company): Observable<company> {
+    const url: string = this.baseUrl + 'companyList'
+    return this.http.post<company>(url,company);
   }
 }

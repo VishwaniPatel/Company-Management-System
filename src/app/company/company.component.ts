@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { company } from './company.model';
 import { CompanyService } from './service/company.service';
 
@@ -8,21 +8,20 @@ import { CompanyService } from './service/company.service';
   styleUrls: ['./company.component.scss']
 })
 export class CompanyComponent implements OnInit {
- public dbcompanyList: company[];
+  public dbcompanyList: company[];
+  
 
-  constructor(private companyService:CompanyService) {
-    this.dbcompanyList =[];
+  constructor(private companyService: CompanyService) {
+    this.dbcompanyList = [];
   }
 
   ngOnInit(): void {
     this.getAllCompany();
-    
+
   }
-  getAllCompany(){
-    this.companyService.getCompany().subscribe((company:company[])=>{
+  getAllCompany() {
+    this.companyService.getCompany().subscribe((company: company[]) => {
       this.dbcompanyList = company;
-      
     })
   }
-
 }
