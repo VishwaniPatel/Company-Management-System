@@ -4,10 +4,16 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'nameLogo'
 })
 export class NameLogoPipe implements PipeTransform {
-  transform(value:any): string {
+  transform(value:string): string {
     value = value.toUpperCase();
-    const companyName = value.split(' ');
-    const nameLogo = companyName[0].charAt(0) + companyName[1].charAt(0);
-    return nameLogo;
+    let NameLogo = ""; 
+      if(value.indexOf(' ') >= 0){   
+        var companyName = value.split(' ');
+        NameLogo = companyName[0].charAt(0) + companyName[1].charAt(0);
+      }
+      else{
+        NameLogo = value.substring(0,2);
+      }
+    return NameLogo;
   }
 }
