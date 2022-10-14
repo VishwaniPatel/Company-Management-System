@@ -21,4 +21,9 @@ export class CompanyService {
     const url: string = this.baseUrl + 'companyList'
     return this.http.post<company>(url,company);
   }
+
+  deleteCompany(id:number): Observable<company> {
+    const url: string = this.baseUrl + 'companyList/' + id;
+    return this.http.delete<company>(url);
+  }
 }

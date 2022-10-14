@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { company } from '../company.model';
 
 
@@ -9,13 +9,20 @@ import { company } from '../company.model';
 })
 export class CompanyListComponent implements OnInit {
   @Input() public companyList:company[];
+  @Output() companyId: EventEmitter<number> = new EventEmitter<number>();
+  public searchText:string;
   
   constructor() { 
     this.companyList = []; 
+    this.searchText='';
   }
 
   ngOnInit(): void {
     
+  }
+
+  onDelete(id:number){
+    this.companyId.emit(id);
   }
 
 }

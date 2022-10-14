@@ -19,13 +19,6 @@
       "companyTags": "FrontEnd"
     },
     {
-      "id": 4,
-      "companyName": "ss",
-      "companyDetails": "ss",
-      "companyTags": "",
-      "companyLogo": "ss"
-    },
-    {
       "id": 5,
       "companyName": "rivet",
       "companyDetails": "IT",
@@ -33,18 +26,6 @@
         1
       ],
       "companyLogo": "1r"
-    },
-    {
-      "id": 6,
-      "companyName": "vishwani",
-      "companyDetails": "it",
-      "companyTags": [
-        {
-          "id": 1,
-          "name": "Front-end"
-        }
-      ],
-      "companyLogo": "vp"
     }
   ]
 }
