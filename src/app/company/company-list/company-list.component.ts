@@ -10,9 +10,11 @@ import { company } from '../company.model';
 export class CompanyListComponent implements OnInit {
   @Input() public companyList:company[];
   @Output() companyId: EventEmitter<number> = new EventEmitter<number>();
+  public searchText:string;
   
   constructor() { 
     this.companyList = []; 
+    this.searchText='';
   }
 
   ngOnInit(): void {

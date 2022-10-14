@@ -9,7 +9,7 @@ import { NgDynamicBreadcrumbModule } from 'ng-dynamic-breadcrumb';
 import { HttpClientModule } from '@angular/common/http';
 import { CompanyService } from './service/company.service';
 import { SharedModule } from '../shared/shared.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 
 
@@ -26,7 +26,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     HttpClientModule,
     SharedModule,
     ReactiveFormsModule,
-    NgSelectModule
+    NgSelectModule,
+    FormsModule
   ],
   providers:[CompanyService]
 })
