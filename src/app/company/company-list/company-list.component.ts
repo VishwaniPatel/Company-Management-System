@@ -14,7 +14,7 @@ export class CompanyListComponent implements OnInit {
   
   constructor() { 
     this.companyList = []; 
-    this.searchText='';
+    this.searchText="";
   }
 
   ngOnInit(): void {

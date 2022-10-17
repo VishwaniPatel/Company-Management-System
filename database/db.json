@@ -1,12 +1,6 @@
 {
   "companyList": [
     {
-      "id": 1,
-      "companyName": "One Rivet",
-      "companyDetails": "This is IT company",
-      "companyTags": "FrontEnd"
-    },
-    {
       "id": 2,
       "companyName": "1r University",
       "companyDetails": "This is IT company",
@@ -19,13 +13,16 @@
       "companyTags": "FrontEnd"
     },
     {
-      "id": 5,
-      "companyName": "rivet",
+      "id": 4,
+      "companyName": "One Rivet",
       "companyDetails": "IT",
       "companyTags": [
-        1
+        {
+          "id": 1,
+          "name": "Front-end"
+        }
       ],
-      "companyLogo": "1r"
+      "companyLogo": "ad"
     }
   ]
 }
