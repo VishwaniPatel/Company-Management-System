@@ -1,3 +1,4 @@
+@import "../../../assets/scss/base/colors";
 aside{
     .close{
         font-size: 25px;
@@ -5,4 +6,12 @@ aside{
     input{
         border: none;
     }
+    
+}
+.logo{
+    height: 40px;
+    width: 40px;
+    background-color: $primary;
+    border-radius: 50%;
+
 }
