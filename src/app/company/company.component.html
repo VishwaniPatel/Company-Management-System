@@ -1,8 +1,6 @@
 <div class="d-flex h-100">
-    <app-company-list class="sidebar border-end border-primary "  [companyList]="dbcompanyList" (companyId)="deleteCompanyDetails($event)" ></app-company-list>
+    <app-company-list class="sidebar border-end border-primary " [companyList]="dbcompanyList" (companyId)="deleteCompanyDetails($event)"></app-company-list>
     <div class="flex-grow-1">
         <router-outlet></router-outlet>
     </div>
 </div>
-<!-- 
-(companyFormDetails)="addCompany($event)" -->

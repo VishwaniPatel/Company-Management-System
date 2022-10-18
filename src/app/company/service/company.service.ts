@@ -26,4 +26,14 @@ export class CompanyService {
     const url: string = this.baseUrl + 'companyList/' + id;
     return this.http.delete<company>(url);
   }
+
+  editCompany(company:company, id:number): Observable<company> {
+    const url: string = this.baseUrl + 'companyList/' + id;
+    return this.http.put<company>(url,company);
+  }
+
+  getCompanyById(id:number):Observable<company>{
+    const url: string = this.baseUrl + 'companyList/' + id;
+    return this.http.get<company>(url);
+  }
 }

@@ -21,7 +21,7 @@
 
   <!-- Company list -->
   <ol class="list-group">
-    <li class="d-flex justify-content-between p-2 list-group-item" *ngFor="let company of companyList | filter: searchText">
+    <li class="d-flex justify-content-between p-2 list-group-item" *ngFor="let company of companyList | filter: searchText" (click)="onEditCompanyDetails(company)">
         <span class="logo text-white d-flex justify-content-center align-items-center">{{ company.companyName | nameLogo}}</span>
         <span class="d-flex justify-content-center align-items-center">{{ company.companyName}}</span>
         <button class="btn d-flex justify-content-center align-items-center bi bi-x btn-outline-danger" (click)= "onDelete(company.id)"></button>

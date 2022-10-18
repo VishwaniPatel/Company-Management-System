@@ -1,7 +1,8 @@
-import { Component, HostBinding, OnInit, Output, EventEmitter  } from '@angular/core';
+import { Component, HostBinding, OnInit, Output, EventEmitter, Input, createPlatform  } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { company } from '../company.model';
+import { DataTransferService } from '../service/data-transfer.service';
 import { CompanyService } from '../service/company.service';
 
 
@@ -11,10 +12,11 @@ import { CompanyService } from '../service/company.service';
   styleUrls: ['./company-form.component.scss']
 })
 export class CompanyFormComponent implements OnInit {
-  // @Output() companyFormDetails: EventEmitter<company> = new EventEmitter<company>();
+@Output() updateCompany: EventEmitter<company> = new EventEmitter<company>();
   @HostBinding('class') classes = '';
   public companyform: FormGroup;
   public isSubmitted: boolean;
+  public companyId: string;
 
   categories = [
     {
@@ -29,12 +31,21 @@ export class CompanyFormComponent implements OnInit {
     {
       id: 4, name: 'Business Analytics'
     }]
-  constructor(private activatedRoute: ActivatedRoute,
+  constructor(private router:Router,
+    private activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder,
-    private companyService:CompanyService) {
+    private companyService:CompanyService,
+    private dataTransfer:DataTransferService) {
     this.companyform = new FormGroup('');
     this.isSubmitted = false;
-  }
+    this.companyId = ""; 
+    this.activatedRoute.params.subscribe((params) => {
+      this.companyId = params['company_id'];
+      if (this.companyId) {
+        this.getCompanyById();
+      }
+  })
+}
 
   ngOnInit(): void {
     this.companyform = this.formBuilder.group(
@@ -45,15 +56,19 @@ export class CompanyFormComponent implements OnInit {
         companyTags: ['', Validators.required],
         companyLogo: ['', Validators.required]
       }
-    )
+    );
+    
   }
 
   onSaveCompanyDetails() {
     this.isSubmitted = true;
     if(this.companyform.valid){
-      this.addCompany();
+      if (this.companyId) {
+        this.editCompanyDetails();
+      }else{
+        this.addCompany();
+      }      
       this.isSubmitted = false;
-      // this.companyFormDetails.emit(this.companyform.value);
       console.log("Data Added");
       this.companyform.reset();
     }
@@ -65,13 +80,26 @@ export class CompanyFormComponent implements OnInit {
 
   onCancel() {
     this.companyform.reset();
+  
   }
 
   addCompany(){
-    this.companyService.addCompany(this.companyform.value).subscribe(respose => {
-
-      console.log("Data Added");
-      
+    
+    this.companyService.addCompany(this.companyform.value).subscribe((respose:company) => {
+      this.dataTransfer.getData(respose)
     })
   }
+
+  getCompanyById(){
+   this.companyService.getCompanyById(Number(this.companyId)).subscribe(company => {
+        this.companyform.patchValue(company);
+      })
+  }
+
+  editCompanyDetails(){
+    this.companyService.editCompany( this.companyform.value,Number(this.companyId)).subscribe((response) => {
+      this.dataTransfer.getData(response);
+      this.router.navigate(['company','add']);
+    })
+}
 }
