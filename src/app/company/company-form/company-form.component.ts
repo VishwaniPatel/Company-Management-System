@@ -80,7 +80,7 @@ export class CompanyFormComponent implements OnInit {
 
   onCancel() {
     this.companyform.reset();
-  
+    this.router.navigate(['company','add']);
   }
 
   addCompany(){
