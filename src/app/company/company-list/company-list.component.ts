@@ -24,7 +24,6 @@ export class CompanyListComponent implements OnInit {
   onDelete(id:number){
     this.companyId.emit(id);
   }
-
   onEditCompanyDetails(company:company) {
     this.router.navigate(["company/edit",company.id]);
   }
