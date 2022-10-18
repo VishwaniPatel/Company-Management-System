@@ -1,19 +1,7 @@
 {
   "companyList": [
     {
-      "id": 2,
-      "companyName": "1r University",
-      "companyDetails": "This is IT company",
-      "companyTags": "FrontEnd"
-    },
-    {
-      "id": 3,
-      "companyName": "One",
-      "companyDetails": "This is IT company",
-      "companyTags": "FrontEnd"
-    },
-    {
-      "id": 4,
+      "id": 7,
       "companyName": "One Rivet",
       "companyDetails": "IT",
       "companyTags": [
@@ -22,7 +10,31 @@
           "name": "Front-end"
         }
       ],
-      "companyLogo": "ad"
+      "companyLogo": "aa"
+    },
+    {
+      "id": 8,
+      "companyName": "Rivet",
+      "companyDetails": "IT",
+      "companyTags": [
+        {
+          "id": 1,
+          "name": "Front-end"
+        }
+      ],
+      "companyLogo": "aa"
+    },
+    {
+      "id": 9,
+      "companyName": "IR University",
+      "companyDetails": "IT",
+      "companyTags": [
+        {
+          "id": 1,
+          "name": "Front-end"
+        }
+      ],
+      "companyLogo": "aa"
     }
   ]
 }
