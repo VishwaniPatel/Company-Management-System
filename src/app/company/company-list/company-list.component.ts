@@ -12,11 +12,11 @@ export class CompanyListComponent implements OnInit {
   @Output() companyId: EventEmitter<number> = new EventEmitter<number>();
   @Output() editCompany: EventEmitter<company> = new EventEmitter<company>();
 
-  public searchText:string;
+  public searchData:string;
   
   constructor(private router:Router) { 
     this.companyList = []; 
-    this.searchText="";
+    this.searchData="";
   }
 
   ngOnInit(): void {}
