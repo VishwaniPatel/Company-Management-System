@@ -39,12 +39,12 @@ export class CompanyFormComponent implements OnInit {
     this.companyform = new FormGroup('');
     this.isSubmitted = false;
     this.companyId = ""; 
-    this.activatedRoute.params.subscribe((params) => {
-      this.companyId = params['company_id'];
-      if (this.companyId) {
-        this.getCompanyById();
-      }
-  })
+  //   this.activatedRoute.params.subscribe((params) => {
+  //     this.companyId = params['company_id'];
+  //     if (this.companyId) {
+  //       this.getCompanyById();
+  //     }
+  // })
 }
 
   ngOnInit(): void {
@@ -57,7 +57,9 @@ export class CompanyFormComponent implements OnInit {
         companyLogo: ['', Validators.required]
       }
     );
-    
+    this.activatedRoute.data.subscribe((data)=>{
+      this.companyform.patchValue(data['company']);
+    })
   }
 
   onSaveCompanyDetails() {
