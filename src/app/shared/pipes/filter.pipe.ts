@@ -6,16 +6,25 @@ import { company } from 'src/app/company/company.model';
 })
 export class FilterPipe implements PipeTransform {
 
-  transform(value: company[], searchText: string): any {
+/**
+   * filterdata form given list values
+   * @param value
+   * @param searchData
+   * @returns company[]
+   */
+ transform(value: company[], searchData: string): any {
 
-    if (!value) return null;
-    if (!searchText) return value;
+  if (!searchData) {
+    return value;
+  }
 
-    searchText = searchText.toLowerCase();
+  searchData = searchData.toLowerCase();
 
-    return value.filter(function (item: any) {
-        return JSON.stringify(item).toLowerCase().includes(searchText);
-    });
+  const data = value.filter((item) => {
+    return item.companyName.toLowerCase().indexOf(searchData.toLowerCase()) !== -1;
+  })
+
+  return data;
 }
 
 }

@@ -1,5 +1,11 @@
 @import "../../../assets/scss/base/colors";
 aside{
+    background-color: $light;
+    box-shadow:3px 0px 5px 3px $secondary;
+    .search-wrapper{
+        background-color: $white;
+    }
+    
     .close{
         font-size: 25px;
     }
@@ -14,4 +20,7 @@ aside{
     background-color: $primary;
     border-radius: 50%;
 
+}
+.search-box{
+   all: unset;
 }
