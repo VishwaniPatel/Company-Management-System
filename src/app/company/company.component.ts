@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { company } from './company.model';
 import { DataTransferService } from './service/data-transfer.service';
 import { CompanyService } from './service/company.service';
@@ -9,7 +9,7 @@ import { CompanyService } from './service/company.service';
   styleUrls: ['./company.component.scss']
 })
 export class CompanyComponent implements OnInit {
- 
+
 
 
   public dbcompanyList: company[];
@@ -17,32 +17,35 @@ export class CompanyComponent implements OnInit {
 
 
   constructor(private companyService: CompanyService,
-    private dataTransfer:DataTransferService) {
+    private dataTransfer: DataTransferService) {
     this.dbcompanyList = [];
 
   }
 
   ngOnInit(): void {
-    this.dataTransfer.communicationData.subscribe((data)=>{
-      if(data){
+    //Loads the data when it is added or updated
+    this.dataTransfer.communicationData.subscribe((data) => {
+      if (data) {
         this.getAllCompany();
       }
     })
+    // Initially load all companies detail 
     this.getAllCompany();
   }
+
+  // Function to get all company details using service (HTTP get)
   getAllCompany() {
     this.companyService.getCompany().subscribe((company: company[]) => {
       this.dbcompanyList = company;
     })
   }
-  deleteCompanyDetails(id:number){
-    if (confirm('Are you sure to delete this company?')){
-    this.companyService.deleteCompany(id).subscribe((Response) => {
-      this.getAllCompany();
-    })
 
+  // Function to delete given company details using service (HTTP delete)
+  deleteCompanyDetails(id: number) {
+    if (confirm('Are you sure to delete this company?')) {
+      this.companyService.deleteCompany(id).subscribe((Response) => {
+        this.getAllCompany();
+      })
+    }
   }
-  }
- 
-
-  }
+}
