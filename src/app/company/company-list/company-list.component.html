@@ -1,32 +1,31 @@
 <!-- Sidebar starts hear -->
 <aside class="primary-aside d-flex flex-column p-4 h-100">
-    <!-- Company list title and add company data button -->
-<div  class="d-flex align-items-center justify-content-between mb-2">
-<h5>Company List</h5>
-          <span class="close bi bi-plus-circle text-primary me-2" routerLink="add"></span>
-</div>
-<!-- Searchbar -->
-<div class="container-fluid border mb-3 p-2 search-wrapper">
+  <!-- Company list title and add company data button -->
+  <div class="d-flex align-items-center justify-content-between mb-2">
+    <h5>Company List</h5>
+    <span class="close bi bi-plus-circle text-primary me-2" routerLink="add"></span>
+  </div>
+  <!-- Searchbar -->
+  <div class="container-fluid border mb-3 p-2 search-wrapper">
     <form class="w-100 d-flex align-items-center" role="search">
       <span class="bi bi-search me-3"></span>
-      <input
-        class="form-control search-box"
-        type="search"
-        placeholder="Search"
-        name="filter"
-        [(ngModel)]="searchData"
-      >
+      <input class="form-control search-box" type="search" placeholder="Search" name="filter" [(ngModel)]="searchData">
     </form>
   </div>
 
-  <!-- Company list -->
+  <!-- Print Company list and filter data using custom pipe -->
   <ol class="list-group" *ngIf="companyList | filter:searchData as filteredData">
-    <li class="d-flex justify-content-between p-2 list-group-item" *ngFor="let company of filteredData" (click)="onEditCompanyDetails(company)">
-        <span class="logo text-white d-flex justify-content-center align-items-center">{{ company.companyName | nameLogo}}</span>
-        <span class="d-flex justify-content-center align-items-center">{{ company.companyName}}</span>
-        <button class="btn d-flex justify-content-center align-items-center bi bi-x btn-outline-danger" (click)= "onDelete(company.id)"></button>
+    <li class="d-flex justify-content-between p-2 list-group-item" *ngFor="let company of filteredData"
+      (click)="onEditCompanyDetails(company)">
+      <span class="logo text-white d-flex justify-content-center align-items-center">{{ company.companyName |
+        nameLogo}}</span>
+      <span class="d-flex justify-content-center align-items-center">{{ company.companyName}}</span>
+      <button class="btn d-flex justify-content-center align-items-center bi bi-x btn-outline-danger"
+        (click)="onDelete(company.id)"></button>
     </li>
+    <!-- No record found message on filter -->
     <div *ngIf="filteredData.length == 0" class="text-center text-danger">
-      <span class= "bi bi-exclamation-triangle-fill "></span> No record Found</div>
+      <span class="bi bi-exclamation-triangle-fill "></span> No record Found
+    </div>
   </ol>
 </aside>

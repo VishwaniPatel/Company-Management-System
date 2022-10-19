@@ -8,9 +8,9 @@ import { company } from '../company.model';
   styleUrls: ['./company-list.component.scss']
 })
 export class CompanyListComponent implements OnInit {
+
   @Input() public companyList:company[];
   @Output() companyId: EventEmitter<number> = new EventEmitter<number>();
-  @Output() editCompany: EventEmitter<company> = new EventEmitter<company>();
 
   public searchData:string;
   
@@ -21,9 +21,11 @@ export class CompanyListComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  // On click of delete button emit company id to company module
   onDelete(id:number){
     this.companyId.emit(id);
   }
+  // on click of edit data, nagivate to edit form page
   onEditCompanyDetails(company:company) {
     this.router.navigate(["company/edit",company.id]);
   }

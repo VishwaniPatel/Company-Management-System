@@ -1,4 +1,4 @@
-import { Component, HostBinding, OnInit, Output, EventEmitter, Input, createPlatform  } from '@angular/core';
+import { Component, HostBinding, OnInit, Output, EventEmitter, Input, createPlatform } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { company } from '../company.model';
@@ -12,12 +12,12 @@ import { CompanyService } from '../service/company.service';
   styleUrls: ['./company-form.component.scss']
 })
 export class CompanyFormComponent implements OnInit {
-@Output() updateCompany: EventEmitter<company> = new EventEmitter<company>();
-  @HostBinding('class') classes = '';
+
   public companyform: FormGroup;
   public isSubmitted: boolean;
   public companyId: string;
 
+  //Data to be display in dropdown of tag element
   categories = [
     {
       id: 1, name: 'Front-end'
@@ -31,21 +31,15 @@ export class CompanyFormComponent implements OnInit {
     {
       id: 4, name: 'Business Analytics'
     }]
-  constructor(private router:Router,
+  constructor(private router: Router,
     private activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder,
-    private companyService:CompanyService,
-    private dataTransfer:DataTransferService) {
+    private companyService: CompanyService,
+    private dataTransfer: DataTransferService) {
     this.companyform = new FormGroup('');
     this.isSubmitted = false;
-    this.companyId = ""; 
-  //   this.activatedRoute.params.subscribe((params) => {
-  //     this.companyId = params['company_id'];
-  //     if (this.companyId) {
-  //       this.getCompanyById();
-  //     }
-  // })
-}
+    this.companyId = "";
+  }
 
   ngOnInit(): void {
     this.companyform = this.formBuilder.group(
@@ -57,21 +51,26 @@ export class CompanyFormComponent implements OnInit {
         companyLogo: ['', Validators.required]
       }
     );
-    this.activatedRoute.data.subscribe((data)=>{
+
+    //patch value of company details using resolver
+    this.activatedRoute.data.subscribe((data) => {
       this.companyform.patchValue(data['company']);
     })
   }
 
+  // On click of save button function is executed
   onSaveCompanyDetails() {
     this.isSubmitted = true;
-    if(this.companyform.valid){
+    if (this.companyform.valid) {
+      // edit company details
       if (this.companyId) {
         this.editCompanyDetails();
-      }else{
+      } else {
+        // add company details
         this.addCompany();
-      }      
+      }
       this.isSubmitted = false;
-      console.log("Data Added");
+      //reset form values
       this.companyform.reset();
     }
   }
@@ -79,29 +78,25 @@ export class CompanyFormComponent implements OnInit {
   uploadFile() {
 
   }
-
+  //  on click of reset button, function clears all the values and nagivate to add form
   onCancel() {
     this.companyform.reset();
-    this.router.navigate(['company','add']);
+    this.router.navigate(['company', 'add']);
   }
 
-  addCompany(){
-    
-    this.companyService.addCompany(this.companyform.value).subscribe((respose:company) => {
+  //add the form values of company details using service
+  addCompany() {
+    this.companyService.addCompany(this.companyform.value).subscribe((respose: company) => {
+      //data transfer service using subject
       this.dataTransfer.getData(respose)
     })
   }
 
-  getCompanyById(){
-   this.companyService.getCompanyById(Number(this.companyId)).subscribe(company => {
-        this.companyform.patchValue(company);
-      })
-  }
-
-  editCompanyDetails(){
-    this.companyService.editCompany( this.companyform.value,Number(this.companyId)).subscribe((response) => {
+  //update company details using service and navigate to add form page
+  editCompanyDetails() {
+    this.companyService.editCompany(this.companyform.value, Number(this.companyId)).subscribe((response) => {
       this.dataTransfer.getData(response);
-      this.router.navigate(['company','add']);
+      this.router.navigate(['company', 'add']);
     })
-}
+  }
 }

@@ -12,6 +12,7 @@ import { SharedModule } from '../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { DataTransferService } from './service/data-transfer.service';
+import { EditCompanyDataResolver } from './edit-company-data.resolver';
 
 
 @NgModule({
@@ -30,6 +31,6 @@ import { DataTransferService } from './service/data-transfer.service';
     NgSelectModule,
     FormsModule
   ],
-  providers:[CompanyService,DataTransferService]
+  providers:[CompanyService,DataTransferService,EditCompanyDataResolver]
 })
 export class CompanyModule { }
