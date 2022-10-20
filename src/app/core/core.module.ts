@@ -4,10 +4,12 @@ import { HeaderComponent } from './navbar/header/header.component';
 import { NgDynamicBreadcrumbModule } from 'ng-dynamic-breadcrumb';
 import { RouterModule } from '@angular/router';
 import { DataTransferService } from '../company/service/data-transfer.service';
+import { LoginComponent } from './Authentication/login/login.component';
 
 @NgModule({
   declarations: [
-    HeaderComponent
+    HeaderComponent,
+    LoginComponent
   ],
   imports: [
     CommonModule,
