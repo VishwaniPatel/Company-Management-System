@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './navbar/header/header.component';
 import { NgDynamicBreadcrumbModule } from 'ng-dynamic-breadcrumb';
 import { RouterModule } from '@angular/router';
+import { DataTransferService } from '../company/service/data-transfer.service';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,6 @@ import { RouterModule } from '@angular/router';
   ],
   exports:[
     HeaderComponent,
-    
-  ]
+  ],
 })
 export class CoreModule { }

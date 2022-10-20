@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { DataTransferService } from 'src/app/company/service/data-transfer.service';
 
 @Component({
   selector: 'app-header',
@@ -8,17 +8,17 @@ import { ActivatedRoute } from '@angular/router';
 })
 
 export class HeaderComponent implements OnInit {
-  public id: any;
-  constructor(private activatedRoute: ActivatedRoute) { 
-   
+  public id!: number;
+  public companyName!: string;
+  constructor(private dataTransferService:DataTransferService) {  
   }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(params => {
-      this.id = params['company_id']
-      console.log(this.id);
+    // get company name using data transfer service
+    this.dataTransferService.BreadCrumbData.subscribe((response:string)=>{
+      this.companyName = response;     
     })
-    console.log(this.activatedRoute);
+  }
   }
 
-}
+

@@ -7,15 +7,7 @@ const routes: Routes = [{
   pathMatch: 'full',
   redirectTo: 'company'
 },
-{ path: 'company', loadChildren: () => import('./company/company.module').then(m => m.CompanyModule),
-data: {
-  title: 'company',
-  breadcrumb: [
-    {
-      skip: true
-    }
-  ]
-} },
+{ path: 'company', loadChildren: () => import('./company/company.module').then(m => m.CompanyModule) },
 {
   path:'**',
   component: PageNotFoundComponent

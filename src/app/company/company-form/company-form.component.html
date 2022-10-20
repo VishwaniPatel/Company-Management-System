@@ -1,5 +1,5 @@
 <div class="p-4 ">
-    <h5>Add Company</h5>
+    <h5>{{title}} Company</h5>
     <form class="border p-4 rounded" [formGroup]="companyform" #form="ngForm" (ngSubmit)="onSaveCompanyDetails()">
         <!-- Company name field -->
         <input class="form-control mb-3" type="text" placeholder="Company Name" formControlName="companyName"

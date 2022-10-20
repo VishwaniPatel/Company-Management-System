@@ -16,6 +16,8 @@ export class CompanyFormComponent implements OnInit {
   public companyform: FormGroup;
   public isSubmitted: boolean;
   public companyId: string;
+  public company_name!: string;
+  public title: string = "";
 
   //Data to be display in dropdown of tag element
   categories = [
@@ -39,6 +41,7 @@ export class CompanyFormComponent implements OnInit {
     this.companyform = new FormGroup('');
     this.isSubmitted = false;
     this.companyId = "";
+    
   }
 
   ngOnInit(): void {
@@ -55,7 +58,12 @@ export class CompanyFormComponent implements OnInit {
     //patch value of company details using resolver
     this.activatedRoute.data.subscribe((data) => {
       this.companyform.patchValue(data['company']);
-    })
+      this.company_name = data['company']?.companyName;
+      this.companyId = data['company']?.id;
+      this.dataTransfer.setCompanyName(this.company_name);
+      });
+      
+    this.title = this.companyId ? "Edit" : "Add";
   }
 
   // On click of save button function is executed

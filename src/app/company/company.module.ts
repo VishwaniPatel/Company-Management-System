@@ -31,6 +31,6 @@ import { EditCompanyDataResolver } from './edit-company-data.resolver';
     NgSelectModule,
     FormsModule
   ],
-  providers:[CompanyService,DataTransferService,EditCompanyDataResolver]
+  providers:[CompanyService,EditCompanyDataResolver]
 })
 export class CompanyModule { }

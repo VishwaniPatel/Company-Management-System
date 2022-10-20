@@ -19,15 +19,6 @@ children:[
   {
     path:'edit/:company_id',
     component:CompanyFormComponent,
-    data: {
-      title: 'company',
-      breadcrumb: [
-        {
-          label: 'Company-list',
-          url: ''
-        }
-      ]
-    },
     resolve:{company:EditCompanyDataResolver}
   }
 ] }];
