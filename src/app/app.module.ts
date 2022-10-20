@@ -4,6 +4,7 @@ import { NgDynamicBreadcrumbModule } from 'ng-dynamic-breadcrumb';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { DataTransferService } from './company/service/data-transfer.service';
 import { CoreModule } from './core/core.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
@@ -18,7 +19,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     CoreModule,
     NgDynamicBreadcrumbModule
   ],
-  providers: [],
+  providers: [DataTransferService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

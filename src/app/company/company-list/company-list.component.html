@@ -3,7 +3,7 @@
   <!-- Company list title and add company data button -->
   <div class="d-flex align-items-center justify-content-between mb-2">
     <h5>Company List</h5>
-    <span class="close bi bi-plus-circle text-primary me-2" routerLink="add"></span>
+    <span class="add bi bi-plus-circle text-primary me-2" routerLink="add"></span>
   </div>
   <!-- Searchbar -->
   <div class="container-fluid border mb-3 p-2 search-wrapper">
@@ -20,7 +20,7 @@
       <span class="logo text-white d-flex justify-content-center align-items-center">{{ company.companyName |
         nameLogo}}</span>
       <span class="d-flex justify-content-center align-items-center">{{ company.companyName}}</span>
-      <button class="btn d-flex justify-content-center align-items-center bi bi-x btn-outline-danger"
+      <button class="close btn d-flex justify-content-center align-items-center bi bi-x btn-outline-danger"
         (click)="onDelete(company.id)"></button>
     </li>
     <!-- No record found message on filter -->

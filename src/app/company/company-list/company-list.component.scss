@@ -6,8 +6,9 @@ aside{
         background-color: $white;
     }
     
-    .close{
+    .close, .add{
         font-size: 25px;
+        cursor: pointer;
     }
     input{
         border: none;
