@@ -36,5 +36,14 @@
       ],
       "companyLogo": "aa"
     }
+  ],
+  "user": [
+    {
+      "firstName": "vishwani",
+      "lastName": "patel",
+      "username": "vishwani",
+      "password": "123456",
+      "id": 1
+    }
   ]
 }
