@@ -1,0 +1,96 @@
+<div class="d-flex h-100 ">
+        <!-- First Half -->
+        <div class="left-part h-100 m-0 p-0">
+            <img src="../../../../assets/images/report.png">
+        </div>
+
+        <!-- Second Half -->
+        <div class="right-part d-flex flex-column justify-content-center align-items-center" >
+            <h2>Registration</h2>
+            <form [formGroup]="registerForm" class="registerform">
+                <!-- First name field -->
+                <div class="form-group mb-2">
+                    <label for="firstName">First Name</label>
+                    <input type="text" formControlName="firstName" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f['firstName'].errors }" />
+                    <div *ngIf="submitted && f['firstName'].errors" class="invalid-feedback">
+                        <div *ngIf="f['firstName'].errors['required']">
+                            First Name is required
+                        </div>
+                    </div>
+                </div>
+                <!-- Last name field -->
+                <div class="form-group mb-2">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" formControlName="lastName" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f['lastName'].errors }" />
+                    <div *ngIf="submitted && f['lastName'].errors" class="invalid-feedback">
+                        <div *ngIf="f['lastName'].errors['required']">
+                            Last Name is required
+                        </div>
+                    </div>
+                </div>
+                <!-- User name field -->
+                <div class="form-group mb-2">
+                    <label for="username">Username</label>
+                    <input type="text" formControlName="username" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f['username'].errors }" />
+                    <div *ngIf="submitted && f['username'].errors" class="invalid-feedback">
+                        <div *ngIf="f['username'].errors['required']">
+                            Username is required
+                        </div>
+                    </div>
+                </div>
+                <!-- Choose role -->
+                <div class="form-group mb-2">
+                    <label for="role">Role</label>
+                    <div>
+                        <input id="male" type="radio" value="admin" name="role" formControlName="role" class="me-2"/>
+                        <label for="male" class="me-2">admin </label>
+
+                        <input id="user" type="radio" value="user" name="role" formControlName="role" class="mx-2" />
+                        <label for="user">user</label>
+
+                        <div *ngIf=" f['role'].invalid && (submitted || f['role'].touched || f['role'].dirty) ">
+                            <div class="text-danger" *ngIf="f['role'].errors?.['required']">
+                                Role is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add password field -->
+                <div class="form-group mb-2">
+                    <label for="password">Password</label>
+                    <input type="password" formControlName="password" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f['password'].errors }" />
+                    <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+                        <div *ngIf="f['password'].errors['required']">
+                            Password is required
+                        </div>
+                        <div *ngIf="f['password'].errors['minlength']">
+                            Password must be at least 6 characters
+                        </div>
+                    </div>
+                </div>
+                <!-- Checkbox for agreement -->
+                <div class="form-check mb-2">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1" formControlName="terms">
+                    <label class="form-check-label" for="exampleCheck1">I agree all terms and condition of service</label>
+                  </div>
+                  <div class="text-danger"
+                  *ngIf=" f['terms'].invalid && (submitted || f['terms'].touched || f['terms'].dirty) ">
+                    <div *ngIf="f['terms'].errors?.['required']">
+                        You must agree before submitting. 
+                    </div>
+                </div>
+                <!-- Register and Login buttons -->
+                <div class="form-group">
+                    <button class="btn btn-primary me-2" (click)="onSubmit()">
+                        Register
+                    </button>
+                    <span>If already registred </span>
+                    <a routerLink="../login" class="btn btn-link">Login</a>
+                </div>
+            </form>
+        </div>
+    </div>

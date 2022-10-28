@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { DataTransferService } from 'src/app/company/service/data-transfer.service';
 
 @Component({
@@ -10,7 +11,8 @@ import { DataTransferService } from 'src/app/company/service/data-transfer.servi
 export class HeaderComponent implements OnInit {
   public id!: number;
   public companyName!: string;
-  constructor(private dataTransferService:DataTransferService) {  
+  constructor(private dataTransferService:DataTransferService,
+    public router:Router) {  
   }
 
   ngOnInit(): void {
