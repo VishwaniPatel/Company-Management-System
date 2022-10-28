@@ -11,7 +11,6 @@ import { UserService } from '../user.service';
 export class RegistrationComponent implements OnInit {
 
   public registerForm: FormGroup;
-  public loading = false;
   public submitted = false;
 
   constructor(
@@ -38,7 +37,6 @@ export class RegistrationComponent implements OnInit {
       return;
     }
 
-    this.loading = true;
     this.userService.register(this.registerForm.value)
       .subscribe
       ((data: any) => {
@@ -53,7 +51,8 @@ export class RegistrationComponent implements OnInit {
       lastName: ['', Validators.required],
       username: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      role: ['', [Validators.required]]
+      role: ['', [Validators.required]],
+      terms: [null, [Validators.required]]
     });
   }
 

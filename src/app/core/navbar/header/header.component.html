@@ -1,4 +1,4 @@
-<nav class="navbar navbar-dark bg-primary">
+<nav class="navbar navbar-dark bg-primary" *ngIf="router.url !== '/login' && router.url !== '/registration' ">
     <div class="mx-4 my-2">
         <span class="bi bi-list text-white me-2"></span>
         <span class="text-white">Company Management System</span>

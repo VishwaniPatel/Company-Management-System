@@ -44,6 +44,14 @@
       "username": "vishwani",
       "password": "123456",
       "id": 1
+    },
+    {
+      "firstName": "vini",
+      "lastName": "patel",
+      "username": "vini",
+      "password": "123456",
+      "role": "user",
+      "id": 2
     }
   ]
 }
