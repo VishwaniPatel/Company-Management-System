@@ -17,7 +17,6 @@ export class AuthGuardGuard implements CanActivate {
       if (this.authService.userIsLogin()) {
         return true;
       } else {
-        // alert("you have not permission to access Employee");
         this.route.navigate(['login']);
         return false
       }

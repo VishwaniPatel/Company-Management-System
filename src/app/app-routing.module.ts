@@ -19,8 +19,10 @@ const routes: Routes = [
     pathMatch: 'full',
     redirectTo: 'company'
   },
-  { path: 'company', loadChildren: () => import('./company/company.module').then(m => m.CompanyModule),
-canActivate:[AuthGuardGuard] },
+  {
+    path: 'company', loadChildren: () => import('./company/company.module').then(m => m.CompanyModule),
+    canActivate: [AuthGuardGuard]
+  },
   {
     path: '**',
     component: PageNotFoundComponent

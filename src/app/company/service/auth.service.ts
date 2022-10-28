@@ -12,7 +12,6 @@ export class AuthService {
   constructor() {
     this.userIsLoginSubject = new BehaviorSubject(true);
     this.userIsLoginObservable$ = this.userIsLoginSubject.asObservable();
-
   }
 
   public userIsLogin(): boolean {
