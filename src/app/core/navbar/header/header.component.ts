@@ -21,6 +21,10 @@ export class HeaderComponent implements OnInit {
       this.companyName = response;     
     })
   }
+
+  onLogout(){
+    this.router.navigate(['/login']);
+    localStorage.clear();
   }
 
-
+}
