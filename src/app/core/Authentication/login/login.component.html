@@ -1,14 +1,71 @@
-<form>
-    <!-- Email input -->
-    <div class="form-outline mb-4">
-      <input type="email" id="form2Example1" class="form-control" placeholder="Enter Email"/>
-    </div>
-  
-    <!-- Password input -->
-    <div class="form-outline mb-4">
-      <input type="password" id="form2Example2" class="form-control" placeholder="Enter Password"/>
-    </div>
-  
-    <!-- Submit button -->
-    <button type="button" class="btn btn-primary btn-block mb-4">Sign in</button>
-  </form>
+<div class="d-flex h-100 ">
+  <!-- First Half -->
+  <div class="left-part h-100 m-0 p-0">
+    <img src="../../../../assets/images/report.png">
+  </div>
+
+  <!-- Second Half -->
+  <div class="right-part d-flex flex-column justify-content-center align-items-center">
+    <h2>Login</h2>
+    <form class="loginform"  [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <!-- Email input -->
+      <div class="form-outline mb-4">
+        <input
+              type="text"
+              formControlName="username"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['username'].errors }"
+            />
+            <div
+              *ngIf="submitted && f['username'].errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f['username'].errors['required']">
+                Username is required
+              </div>
+            </div>
+      </div>
+
+      <!-- Password input -->
+      <div class="form-outline mb-4">
+        <input
+              type="password"
+              formControlName="password"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"
+            />
+            <div
+              *ngIf="submitted && f['password'].errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f['password'].errors['required']">
+                Password is required
+              </div>
+            </div>
+      </div>
+
+      <!-- Remember me chechbox -->
+      <div class="form-check mb-2">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" formControlName="terms">
+        <label class="form-check-label" for="exampleCheck1">Remember me</label>
+      </div>
+
+      <!-- Submit button -->
+
+      <div class="form-group">
+        <button class="btn btn-primary">
+          Login
+        </button>
+      </div>
+
+      <!-- Redirect to registration page if new user -->
+      <div class="d-flex justify-content-between">
+        <span> New user?
+          <a routerLink="../registration" class="btn btn-link">Register</a>
+        </span>
+        <span>Forgot password</span>
+      </div>
+    </form>
+  </div>
+
+</div>
