@@ -10,16 +10,11 @@ import { CompanyService } from './service/company.service';
 })
 export class CompanyComponent implements OnInit {
 
-
-
   public dbcompanyList: company[];
-
-
 
   constructor(private companyService: CompanyService,
     private dataTransfer: DataTransferService) {
     this.dbcompanyList = [];
-
   }
 
   ngOnInit(): void {

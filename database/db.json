@@ -1,6 +1,78 @@
 {
   "companyList": [
     {
+      "id": 1,
+      "companyName": "One Rivet",
+      "companyDetails": "IT",
+      "companyTags": [
+        {
+          "id": 1,
+          "name": "Front-end"
+        }
+      ],
+      "companyLogo": "aa"
+    },
+    {
+      "id": 2,
+      "companyName": "Rivet",
+      "companyDetails": "IT",
+      "companyTags": [
+        {
+          "id": 1,
+          "name": "Front-end"
+        }
+      ],
+      "companyLogo": "aa"
+    },
+    {
+      "id": 3,
+      "companyName": "IR University",
+      "companyDetails": "IT",
+      "companyTags": [
+        {
+          "id": 1,
+          "name": "Front-end"
+        }
+      ],
+      "companyLogo": "aa"
+    },
+    {
+      "id": 4,
+      "companyName": "One Rivet",
+      "companyDetails": "IT",
+      "companyTags": [
+        {
+          "id": 1,
+          "name": "Front-end"
+        }
+      ],
+      "companyLogo": "aa"
+    },
+    {
+      "id": 5,
+      "companyName": "Rivet",
+      "companyDetails": "IT",
+      "companyTags": [
+        {
+          "id": 1,
+          "name": "Front-end"
+        }
+      ],
+      "companyLogo": "aa"
+    },
+    {
+      "id": 6,
+      "companyName": "IR University",
+      "companyDetails": "IT",
+      "companyTags": [
+        {
+          "id": 1,
+          "name": "Front-end"
+        }
+      ],
+      "companyLogo": "aa"
+    },
+    {
       "id": 7,
       "companyName": "One Rivet",
       "companyDetails": "IT",

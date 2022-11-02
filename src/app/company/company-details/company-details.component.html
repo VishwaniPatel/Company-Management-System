@@ -1,0 +1,28 @@
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-3 mb-3" *ngFor = "let i of companies">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="../../../assets/images/report.png" class="img-fluid" style="height:250px;">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="ms-2 card-title text-primary">{{i.companyName}}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+<div>
+    <select class="form-control" [value]="companyPerPage" (change)="changePageSize($event)">
+        <option value="4" >4 per page</option>
+        <option value="6">6 per page</option>
+        <option value="8">8 per page</option>
+    </select>
+</div>
+<div>
+    <button *ngFor="let page of pageNumbers">1</button>
+</div>
+</div>

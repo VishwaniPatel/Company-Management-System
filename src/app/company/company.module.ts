@@ -13,13 +13,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { DataTransferService } from './service/data-transfer.service';
 import { EditCompanyDataResolver } from './edit-company-data.resolver';
+import { CompanyDetailsComponent } from './company-details/company-details.component';
 
 
 @NgModule({
   declarations: [
     CompanyComponent,
     CompanyFormComponent,
-    CompanyListComponent
+    CompanyListComponent,
+    CompanyDetailsComponent
   ],
   imports: [
     CommonModule,
