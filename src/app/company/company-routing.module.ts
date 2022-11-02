@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CompanyDetailsComponent } from './company-details/company-details.component';
 import { CompanyFormComponent } from './company-form/company-form.component';
 import { CompanyComponent } from './company.component';
 import { EditCompanyDataResolver } from './edit-company-data.resolver';
@@ -20,6 +21,10 @@ children:[
     path:'edit/:company_id',
     component:CompanyFormComponent,
     resolve:{company:EditCompanyDataResolver}
+  },
+  {
+    path:'details',
+    component: CompanyDetailsComponent
   }
 ] }];
 
