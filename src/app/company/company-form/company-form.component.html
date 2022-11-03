@@ -42,17 +42,17 @@
 
         <!-- Select Logo field -->
         <div class="input-group mb-3">
-            <input type="text" class="form-control" id="inputGroupFile02" placeholder="Select Logo"
-                formControlName="companyLogo">
-            <button type="button" class="input-group-text" (click)="uploadFile()">Browse</button>
+            <input type="file" (change)="imageUploaded($event)" id="uplaod" class="form-control" formControlName="companyLogo">
+            <!-- <button type="button" class="input-group-text" (click)="uploadFile()">Browse</button> -->
         </div>
         <!-- Validation for Company Logo -->
         <div
             *ngIf="companyform.controls['companyLogo'].invalid && (isSubmitted || companyform.controls['companyLogo'].touched || companyform.controls['companyLogo'].dirty)">
             <span class="text-danger" *ngIf="companyform.controls['companyLogo'].errors?.['required']">
-                Select company logo
+                Upload company logo
             </span>
         </div>
+        <img *ngIf="isImagevalue" [src]="base64String" height="100" width="100" alt="Logo">
 
         <div class="d-flex justify-content-end">
             <!-- Reset button -->

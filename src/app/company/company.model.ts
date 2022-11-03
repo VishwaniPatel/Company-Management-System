@@ -3,6 +3,8 @@ export class company {
         public companyName!: string;
         public companyDetails!: string;
         public companyTags!: string;
-        public companyLogo!:string    
+        public companyLogo!:string;
+        public companyPath!:any;  
+        companyLogoName!:string;  
 } 
 

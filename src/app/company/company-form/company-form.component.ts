@@ -18,6 +18,9 @@ export class CompanyFormComponent implements OnInit {
   public companyId: string;
   public company_name!: string;
   public title: string = "";
+  public base64String: any;
+  public imageFile!: File;
+  public isImagevalue: boolean;
 
   //Data to be display in dropdown of tag element
   categories = [
@@ -41,7 +44,9 @@ export class CompanyFormComponent implements OnInit {
     this.companyform = new FormGroup('');
     this.isSubmitted = false;
     this.companyId = "";
-    
+    this.base64String = '';
+    this.isImagevalue = false;
+
   }
 
   ngOnInit(): void {
@@ -51,18 +56,30 @@ export class CompanyFormComponent implements OnInit {
         companyName: ['', Validators.required],
         companyDetails: ['', Validators.required],
         companyTags: ['', Validators.required],
-        companyLogo: ['', Validators.required]
+        companyLogo: ['', Validators.required],
+        companyPath: [''],
+        companyLogoName: ['']
       }
     );
 
     //patch value of company details using resolver
     this.activatedRoute.data.subscribe((data) => {
-      this.companyform.patchValue(data['company']);
-      this.company_name = data['company']?.companyName;
-      this.companyId = data['company']?.id;
-      this.dataTransfer.setCompanyName(this.company_name);
-      });
       
+      this.companyId = data['company']?.id;
+      if(!this.companyId){
+        this.isImagevalue=false;
+      }
+      else{
+        this.isImagevalue = true;
+        this.companyform.patchValue(data['company']);
+        this.company_name = data['company']?.companyName;
+        this.companyId = data['company']?.id;
+        this.base64String = data['company']?.companyPath; 
+        this.dataTransfer.setCompanyName(this.company_name);
+      }
+     
+    });
+
     this.title = this.companyId ? "Edit" : "Add";
   }
 
@@ -80,6 +97,7 @@ export class CompanyFormComponent implements OnInit {
       this.isSubmitted = false;
       //reset form values
       this.companyform.reset();
+      this.isImagevalue = false;
     }
   }
 
@@ -94,17 +112,40 @@ export class CompanyFormComponent implements OnInit {
 
   //add the form values of company details using service
   addCompany() {
+    this.companyform.controls['companyLogoName'].patchValue(this.imageFile.name);
+      this.companyform.controls['companyPath'].patchValue(this.base64String);
     this.companyService.addCompany(this.companyform.value).subscribe((respose: company) => {
       //data transfer service using subject
       this.dataTransfer.getData(respose)
+      
     })
   }
 
   //update company details using service and navigate to add form page
   editCompanyDetails() {
+    // this.companyform.controls['companyLogoName'].patchValue(this.imageFile.name);
+    //   this.companyform.controls['companyPath'].patchValue(this.base64String);
+    // console.log(this.base64String);
+    this.isImagevalue = true;
     this.companyService.editCompany(this.companyform.value, Number(this.companyId)).subscribe((response) => {
       this.dataTransfer.getData(response);
       this.router.navigate(['company', 'add']);
     })
   }
+
+  imageUploaded(event: any) {
+
+    if (event.target.files.length > 0) {
+      this.imageFile = event.target.files[0];
+      // console.log(this.imageFile);
+    }
+    var reader = new FileReader();
+    reader.onload = () => {
+      this.base64String = String(reader.result)
+    }
+      reader.readAsDataURL(this.imageFile);
+      if (this.imageFile) {
+        this.isImagevalue = true;
+      }
+    }
 }

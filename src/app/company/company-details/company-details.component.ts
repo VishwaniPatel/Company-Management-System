@@ -19,7 +19,7 @@ export class CompanyDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.getDetails();
   }
-
+ 
   getDetails() {
     this.companyService.getCompany().subscribe((company: company[]) => {
       this.companyList = company;
@@ -27,7 +27,7 @@ export class CompanyDetailsComponent implements OnInit {
       this.companies = this.companyList.slice(pageIndex, this.companyPerPage);
       console.log(this.companyList)
     })
-  }
+  } 
 
   changePageSize(event: Event) {
 
