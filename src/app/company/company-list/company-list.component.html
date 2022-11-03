@@ -19,6 +19,7 @@
       (click)="onEditCompanyDetails(company)">
       <span class="logo text-white d-flex justify-content-center align-items-center">{{ company.companyName |
         nameLogo}}</span>
+        <!-- <img [src]="company.companyPath" width="40px" height="40px" class="rounded-circle"> -->
       <span class="d-flex justify-content-center align-items-center">{{ company.companyName}}</span>
       <button class="close btn d-flex justify-content-center align-items-center bi bi-x btn-outline-danger"
         (click)="onDelete(company.id)"></button>
