@@ -30,12 +30,24 @@ export class CompanyDetailsComponent implements OnInit {
   } 
 
   changePageSize(event: Event) {
-
+const newSize = (event.target as HTMLInputElement).value;
+this.companyPerPage = Number(newSize);
+this.changePage(1);
   }
 
   get pageNumbers(): number[] {
     return Array(Math.ceil(this.companyList.length / this.companyPerPage))
       .fill(0).map((x, i) => i + 1);
+  }
+  changePage(page : any){
+    this.selectedPage = page;
+    this.sliceCompanies();
+  }
+  sliceCompanies(){
+    let pageIndex = (this.selectedPage - 1) * this.companyPerPage;
+    let endIndex = (this.selectedPage - 1) * this.companyPerPage + this.companyPerPage;
+    this.companies = [];
+    this.companies = this.companyList.slice(pageIndex, endIndex);
   }
 }
 
